@@ -100,6 +100,28 @@ public class Extercises01
 
     }
 
+    [Fact]
+    public void Exercise05()
+    {
+        var suits = new []  { "Hearts", "Spades", "Clubs", "Diamonds"};
+        var values = new [] { "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"};
+
+        // Write a function that generates a list of all cards in a standard 52-deck of cards (excepting the jokers)
+        // then randomly select 5 to form a poker hand, and determines whether or not the hand is a flush
+        // i.e. all cards have the same suit
+
+
+    }
+
+    [Fact]
+    public void Exercise06()
+    {
+        // Solve FizzBuzz using LINQ.  Generate the first 20 lines, joined into a single string with 
+        // newlines between each line.  As a reminder - Each line consists of a number between 1 and
+        // 20, then either no further text, or the word "fizz" if the nuber is divisible by 3 and 
+        // the word "buzz" if the number is divisible by 5.
+    }
+
         private class Numbers
         {
             public int A { get; init; }
