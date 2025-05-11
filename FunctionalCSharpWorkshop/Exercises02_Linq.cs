@@ -29,7 +29,7 @@ public class Extercises01
         // calculate the final result.  Based on Advent of Code 2015, Day One.
         // https://adventofcode.com/2015/day/1 - for more examples
 
-        var input = ")())())";
+        var input = "(()(()(";
         var result = CalculateAnswer(input);
         Assert.Equal(3, result);
         
@@ -122,6 +122,25 @@ public class Extercises01
         // the word "buzz" if the number is divisible by 5.
     }
 
+
+    public static async Task Blah()
+    {
+        async Task<int> GetAnInteger()
+        {
+            await Task.Delay(1);
+            return 6;
+        }
+
+        async Task<string> GetAString(Task<int> i)
+        {
+            var j =  await i;
+            return j.ToString();
+        }
+		
+        var result = await await GetAnInteger().ContinueWith(x => x);
+
+    }
+
         private class Numbers
         {
             public int A { get; init; }
@@ -130,6 +149,5 @@ public class Extercises01
             public int C { get; init; }
 
         }
-
 
 }

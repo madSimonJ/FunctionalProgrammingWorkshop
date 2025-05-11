@@ -78,4 +78,24 @@ namespace FunctionalCSharpWorkshop
             _current = _firstValue;
         }
     }
+
+    public static async Task Blah()
+    {
+        async Task<int> GetAnInteger()
+        {
+            await Task.Delay(1);
+            return 6;
+        }
+
+        async Task<string> GetAString(Task<int> i)
+        {
+            var j =  await i;
+            return j.ToString();
+        }
+		
+        var result = await GetAnInteger().ContinueWith(x => x);
+
+    }
+
+
 }
