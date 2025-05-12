@@ -34,6 +34,7 @@ namespace FunctionalCSharpWorkshop
 
             static int GetNumericInput(MyFakeConsole console)
             {
+
                 while(true)
                 {
                     var input = console.GetInput();

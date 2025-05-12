@@ -9,12 +9,24 @@ namespace FunctionalCSharpWorkshop
         // 9 - 3
         // 1 - 1
         //this should be returned as a single string with newline characters
+        // the _SampleData array in this file is the data source to summrise
 
 
+        public int GetProp1Is9()
+        {
+            return
+            MakeReport(x => x.PropertyOne, "9");
+        }
+
+        public int MakeReport(Func<DataContainer, string> selector, string propertyValueToCheckFor)
+        {
+            return
+            _SampleData.Count(x => selector(x) == propertyValueToCheckFor);
+        }
+            
 
 
-
-            private readonly IEnumerable<DataContainer> _SampleData = new [] {
+            private readonly IEnumerable<DataContainer> _SampleData = [
                 new DataContainer {
                     PropertyOne = "1",
                     PropertyTwo  = "9",
@@ -36,7 +48,7 @@ namespace FunctionalCSharpWorkshop
                     PropertyThree = "5"
                 }              
 
-            };
+            ];
 
         public class DataContainer
         {

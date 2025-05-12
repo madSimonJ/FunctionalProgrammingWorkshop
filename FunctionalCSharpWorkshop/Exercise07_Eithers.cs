@@ -52,7 +52,7 @@ namespace FunctionalCSharpWorkshop
             Id = 2,
             Name = "London"
         },
-        3 => throw new Exception("No, it's not Sydney!  It's Canberra"),)
+        3 => throw new Exception("No, it's not Sydney!  It's Canberra")
 
     }
 

@@ -7,7 +7,7 @@ namespace FunctionalCSharpWorkshop
 {
     public class Exercise06_Maybies
     {
-        private class personId
+        private class person
         {
             public string FirstName { get; set; }
             public string LastName { get; set; }
@@ -16,7 +16,7 @@ namespace FunctionalCSharpWorkshop
 
         // Exercise 1 - rework these next 2 functions to use Maybe<Person> instead of simply Person
 
-        public static Person PersonGetter(int personId)
+        public static FilmPerson PersonGetter(int personId)
         {
             if(personId == 6)
                 return new Person {
