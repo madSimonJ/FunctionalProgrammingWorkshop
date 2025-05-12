@@ -1,8 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-using Xunit.Sdk;
-
 namespace FunctionalCSharpWorkshop;
 
 public class Extercises01
@@ -125,23 +120,7 @@ public class Extercises01
     }
 
 
-    public static async Task Blah()
-    {
-        async Task<int> GetAnInteger()
-        {
-            await Task.Delay(1);
-            return 6;
-        }
 
-        async Task<string> GetAString(Task<int> i)
-        {
-            var j =  await i;
-            return j.ToString();
-        }
-		
-        var result = await await GetAnInteger().ContinueWith(x => x);
-
-    }
 
         private class Numbers
         {
