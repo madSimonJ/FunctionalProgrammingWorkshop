@@ -7,7 +7,7 @@ namespace FunctionalCSharpWorkshop
 {
     public class Exercise06_Maybies
     {
-        private class person
+        public class Person
         {
             public string FirstName { get; set; }
             public string LastName { get; set; }
@@ -16,13 +16,13 @@ namespace FunctionalCSharpWorkshop
 
         // Exercise 1 - rework these next 2 functions to use Maybe<Person> instead of simply Person
 
-        public static FilmPerson PersonGetter(int personId)
+        public static Person PersonGetter(int personId)
         {
             if(personId == 6)
                 return new Person {
                     FirstName = "Patrick",
                     LastName = "McGoohan",
-                }
+                };
             
             throw new Exception("I am not a number!");
         }
@@ -54,7 +54,7 @@ namespace FunctionalCSharpWorkshop
                     Name = "Thor",
                     SecretIdentity = "Donald Blake"
                 }
-            }
+            };
 
             return datastore.single(x => x.Id == id);
 
@@ -64,7 +64,7 @@ namespace FunctionalCSharpWorkshop
         {
             var hero = GetSuperHero(id);
 
-            var description = $"{herp.Name} ({hero.SecretIdentity})"        
+            var description = $"{hero.Name} ({hero.SecretIdentity})"; 
             return description;
         }
 
@@ -73,6 +73,8 @@ namespace FunctionalCSharpWorkshop
         //Exercise 3 - same again.  re-write this using Maybe and Bind
 
         public Film GetFilm(int id) =>
+			id switch
+			{
             1 => new Film {
                 Id = 1,
                 Name = "Bladerunner",
@@ -94,9 +96,11 @@ namespace FunctionalCSharpWorkshop
                 Id = 4,
                 Name = "Excalibur",
                 Director = 4
-             };
+             }
+			};
 
-        public FilmPerson GetPerson(int id) =>
+        public FilmPerson GetPerson(int id) => id switch
+		{
             1 => new FilmPerson
             {
                 Id = 1,
@@ -111,7 +115,8 @@ namespace FunctionalCSharpWorkshop
             {
                 Id = 3,
                 Name = "Sergio Leone"
-            };
+            }
+		};
 
             public string GetDirectorsName(int Id)
             {
@@ -119,7 +124,7 @@ namespace FunctionalCSharpWorkshop
                 var director = GetPerson(film.Director);
                 return director.Name;
             }
-§       
+      
 
 
 
