@@ -56,7 +56,7 @@ namespace FunctionalCSharpWorkshop
                 }
             };
 
-            return datastore.single(x => x.Id == id);
+            return datastore.Single(x => x.Id == id);
 
         }
 
