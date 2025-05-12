@@ -25,7 +25,7 @@ public class Extercises01
     [Fact]
     public void Exercise02()
     {
-        // Write a function that takes a string containing ( and ) characters.  Add one for each (, deduct one for each ).
+        // Write a function that takes a string containing ( and ) characters.  Add one for each '(', deduct one for each ')'.
         // calculate the final result.  Based on Advent of Code 2015, Day One.
         // https://adventofcode.com/2015/day/1 - for more examples
 
@@ -40,15 +40,17 @@ public class Extercises01
         }
     }
 
-    [Fact]
-    public void Exercise03()
+    [Theory]
+    [InlineData(new[] { 1, 4, 5, 6, 7, 9 }, true)]
+    [InlineData(new[] { 1, 4, 6, 9 }, false)]
+
+    public void Exercise03(int[] input, bool expectedAnswer)
     {
         // Write a function that determins whether there are two consecutive numbers in an array of intgers
         // e.g. [1, 4, 6, 7, 9] contains a consecutive pair of numbers (6 and 7), but [1, 4, 6, 9] does not
 
-        var input = new [] {1, 4, 5, 6, 7, 9};
         var result = DoesContainConsecutiveNumbers(input);
-        Assert.True(result);
+        Assert.Equal(expectedAnswer, result);
 
         bool DoesContainConsecutiveNumbers(IEnumerable<int> input)
         {
