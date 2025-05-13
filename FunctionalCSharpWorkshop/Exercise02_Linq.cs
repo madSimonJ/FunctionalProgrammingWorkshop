@@ -20,7 +20,8 @@ public class Extercises01
     [Fact]
     public void Exercise02()
     {
-        // Write a function that takes a string containing ( and ) characters.  Add one for each '(', deduct one for each ')'.
+        // Write a function that takes a string containing ( and ) characters.
+        // Add one for each '(', deduct one for each ')'.
         // calculate the final result.  Based on Advent of Code 2015, Day One.
         // https://adventofcode.com/2015/day/1 - for more examples
 
@@ -41,7 +42,7 @@ public class Extercises01
 
     public void Exercise03(int[] input, bool expectedAnswer)
     {
-        // Write a function that determins whether there are two consecutive numbers in an array of intgers
+        // Write a function that determines whether there are two consecutive numbers in an array of intgers
         // e.g. [1, 4, 6, 7, 9] contains a consecutive pair of numbers (6 and 7), but [1, 4, 6, 9] does not
 
         var result = DoesContainConsecutiveNumbers(input);
@@ -58,7 +59,7 @@ public class Extercises01
     public void Exercise04()
     {
         // Write a function that calculates the sum of values each of a, b and c - but with only a single
-        // iteration of the source array
+        // iteration of the source array - i.e. calling Count 3 times is not the correct answer!
 
         var input = new []
         {
@@ -122,7 +123,7 @@ public class Extercises01
 
 
 
-        private class Numbers
+        private readonly record struct Numbers
         {
             public int A { get; init; }
             public int B { get; init; }

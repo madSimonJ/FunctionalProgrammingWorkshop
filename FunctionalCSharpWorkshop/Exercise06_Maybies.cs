@@ -1,20 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace FunctionalCSharpWorkshop
 {
     public class Exercise06_Maybies
     {
-        public class Person
+        public readonly record struct Person
         {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
+            public string FirstName { get; init; }
+            public string LastName { get; init; }
         }
 
 
         // Exercise 1 - rework these next 2 functions to use Maybe<Person> instead of simply Person
+        // The return types should be changed to Maybe<Person> and Maybe<string>, as appropriate
 
         public static Person PersonGetter(int personId)
         {
@@ -33,7 +29,8 @@ namespace FunctionalCSharpWorkshop
             return person.FirstName + " " + person.LastName;
         }
 
-
+        
+        
 
         // Exercise 2 - Use Maybe<SuperHero> and calls to .Bind to improve the following
 
