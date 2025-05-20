@@ -37,5 +37,22 @@ public class Exercise10_currying
     {
         Console.WriteLine($"{DateTime.Now.ToShortDateString()}{appName}-{logLevel}-{message}");
     }
-    
+
+
+    [Fact]
+    public void Exercise3()
+    {
+        var c = FahrenheitToCentrigrade(100);
+        
+    }
+
+    // create a series of curried functions to do add, divide and subtract, then reference them
+    // in a chain of Map calls to give an easier to read functional flow
+    // e.g.
+    // fahrenheit.Map(Subtract(32)).Map(DivideBy(9)).Map(MultiplyBy(5));
+    public string FahrenheitToCentrigrade(decimal fahrenheit)
+    {
+        var centrigrade = Math.Round((fahrenheit - 32) / 9 * 5, 2);
+        return $"{centrigrade:F2}°C";
+    }
 }

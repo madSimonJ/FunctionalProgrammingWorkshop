@@ -2,12 +2,69 @@ namespace FunctionalCSharpWorkshop
 {
     public class Exercise07_Eithers
     {
+
+        public string EvilFizzBuzz(int number)
+        {
+            return number switch
+            {
+                _ when number % 3 == 0 => throw new Exception("fizz"),
+                _ when number % 5 == 0 => throw new Exception("buzz"),
+                _ => string.Empty
+            };
+        }
+
+        public string composeFizzBuzzLine(int number)
+        {
+            var text = EvilFizzBuzz(number);
+            return $"{number}  {text}";
+        }
+
+        public string MakeFizzBuzz(int number)
+        {
+            var lines = Enumerable.Range(1, number)
+                .Select(composeFizzBuzzLine);
+            var returnVaule = string.Join(Environment.NewLine, lines);
+            return returnVaule;
+        }
+        
+        [Fact]
+        public void Exercise01()
+        {
+            var fizzBuzzes = MakeFizzBuzz(20);
+            var expectedFizzBuzzes = @"1  
+2  
+3  fizz
+4  
+5  buzz
+6  fizz
+7  
+8  
+9  fizz
+10  buzz
+11  
+12  fizz
+13  
+14  
+15  fizz
+16  
+17  
+18  fizz
+19  
+20  buzz";
+            
+            Assert.Equal(fizzBuzzes, expectedFizzBuzzes);
+
+        }
+        
+        
+        
+        
         [Theory]
         [InlineData(1, "Oslo")]
         [InlineData(2, "This was supposed to be the UK.  Oh well")]
         [InlineData(3, "No, it's not Sydney!  It's Canberra")]
 
-        public void Exercise01(int countryId, string expectedText)
+        public void Exercise02(int countryId, string expectedText)
         {
             var capitalCityText = GetCapitalCity(countryId);
             Assert.Equal(expectedText, capitalCityText);
